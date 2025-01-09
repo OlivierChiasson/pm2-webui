@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html data-bs-theme="dark">
 <head>
     <title>PM2 WebUI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,34 +7,46 @@
     <script src="https://unpkg.com/@tabler/core@1.0.0-beta2/dist/js/tabler.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@tabler/core@1.0.0-beta2/dist/css/tabler.min.css">
 </head>
-<body>
+<body class="bg-dark">
     <div class="container-tight py-4">
     <div class="text-center mb-4">
       <a href="."><img src="./static/logo.svg" height="36" alt=""></a>
     </div>
-    <form class="card card-md" action="/login" method="POST" autocomplete="off">
-      <div class="card-body text-center">
+    
+    <form class="card card-md border-0" action="/login" method="POST" autocomplete="off" style="box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+      <div class="card-body text-center" style="background-color: rgba(35, 46, 60, 0.92);">
+        <div class="position-absolute top-0 end-0 p-3">
+          <button onclick="window.location.href = 'https://exitkiosk'" class="btn btn-danger btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            Close
+          </button>
+        </div>
+        <div class="mb-4 justify-content-center d-flex">
+          <a href=".">
+            <img src="/assets/images/app/logo-light.png" width="110" height="32" alt="PM2 WebUI Logo" class="navbar-brand-image">
+          </a>
+          
+        </div>
+       
+        <div class="mb-3">
+          <input name="username" type="username" class="form-control text-center bg-dark border-0 text-white" style="box-shadow: 0 2px 4px rgba(0,0,0,0.2);" placeholder="Username" value="<%= login.username %>" required>
+        </div>
         <div class="mb-4">
-          <h2 class="card-title">Application Login</h2>
+          <input name="password" type="password" class="form-control text-center bg-dark border-0 text-white" style="box-shadow: 0 2px 4px rgba(0,0,0,0.2);" placeholder="Password" value="<%= login.password %>" required>
         </div>
         <div class="mb-3">
-          <span class="avatar avatar-xl mb-3" style="background-image: url(/assets/images/app/user.svg)"></span>
-        </div>
-        <div class="mb-3">
-          <input name="username" type="username" class="form-control text-center" placeholder="Username" value="<%= login.username %>" required>
-        </div>
-        <div class="mb-4">
-          <input name="password" type="password" class="form-control text-center" placeholder="Password" value="<%= login.password %>" required>
-        </div>
-        <div class="mb-3">
-          <button class="btn btn-primary w-100" type="submit">
+          <button class="btn btn-primary w-100" type="submit" style="box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
             <!-- Download SVG icon from http://tabler-icons.io/i/lock-open -->
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="5" y="11" width="14" height="10" rx="2"></rect><circle cx="12" cy="16" r="1"></circle><path d="M8 11v-5a4 4 0 0 1 8 0"></path></svg>
             Login
           </button>
         </div>
         <% if(login.error){ %>
-          <div class="alert alert-important alert-danger alert-dismissible" role="alert">
+          <div class="alert alert-important alert-danger alert-dismissible" role="alert" style="box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
             <div class="d-flex">
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

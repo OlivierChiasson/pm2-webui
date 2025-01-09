@@ -2,8 +2,8 @@
   <div class="row row-deck pt-5">
     <% apps.forEach(function (app) {%>
       <div class="col-md-3 mb-5">
-        <div class="card">
-          <div class="card-status-top bg-indigo"></div>
+        <div class="card bg-dark">
+          <div class="card-status-top  <%= app.status === 'online' ? 'bg-green' : 'bg-red' %>"></div>
           <a href="/apps/<%= app.name %>" style="text-decoration: none; color: inherit;">
             <div class="card-body">
               <div class="card-title text-primary">
@@ -58,7 +58,7 @@
                 Uptime : <%= app.uptime %></h4>
             </div>
           </a>
-          <div class="card-footer text-center">
+          <div class="card-footer text-center" style="background-color: rgb(25, 33, 43);">
             <% if(app.status === "online"){ %>
               <button class="btn btn-sm btn-green" aria-label="Button" onclick="pm2AppAction('<%= app.name %>', 'reload')">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

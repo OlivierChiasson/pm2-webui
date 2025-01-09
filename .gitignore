@@ -120,3 +120,4 @@ dist
 
 # Temp Folder
 .tmp
+pnpm-lock.yaml
